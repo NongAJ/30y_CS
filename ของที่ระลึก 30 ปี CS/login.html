@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>เข้าสู่ระบบแอดมิน</title>
+  <style>
+    /* Reset เบื้องต้น */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .login-box {
+      background-color: #fff;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+      transition: transform 0.2s ease;
+    }
+    .login-box:focus-within {
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    input,
+    button {
+      width: 100%;
+      padding: 14px 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1.8px solid #ccc;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+      font-weight: 500;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 6px #7ec6ff;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #217dbb;
+    }
+
+    .error {
+      color: #e74c3c;
+      text-align: center;
+      margin-top: 8px;
+      min-height: 22px;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 25px 20px;
+        width: 100%;
+        max-width: 320px;
+      }
+      input,
+      button {
+        font-size: 15px;
+        padding: 12px 10px;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box" role="main" aria-label="หน้าเข้าสู่ระบบแอดมิน">
+    <h2>เข้าสู่ระบบแอดมิน</h2>
+    <input type="text" id="username" placeholder="ชื่อผู้ใช้" aria-label="ชื่อผู้ใช้" autocomplete="username" />
+    <input type="password" id="password" placeholder="รหัสผ่าน" aria-label="รหัสผ่าน" autocomplete="current-password" />
+    <button id="loginBtn">เข้าสู่ระบบ</button>
+    <div id="error" class="error" aria-live="polite"></div>
+          <a href="mainmenu.html">
+    <button type="button" style="
+      background-color: #f39c12;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    ">ฉันไม่ใช้แอดมิน</button>
+  </div>
+
+  <script>
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const errorDiv = document.getElementById("error");
+    const loginBtn = document.getElementById("loginBtn");
+
+    function login() {
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+
+      if (username === "admin" && password === "123456") {
+        window.location.href = "adminnnn.html"; // แก้ชื่อไฟล์ตามจริง
+      } else {
+        errorDiv.innerText = "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
+      }
+    }
+
+    // เคลียร์ error เมื่อพิมพ์
+    usernameInput.addEventListener("input", () => {
+      errorDiv.innerText = "";
+    });
+    passwordInput.addEventListener("input", () => {
+      errorDiv.innerText = "";
+    });
+
+    // กด Enter เข้าสู่ระบบได้
+    [usernameInput, passwordInput].forEach((input) => {
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          login();
+        }
+      });
+    });
+
+    loginBtn.addEventListener("click", login);
+  </script>
+</body>
+</html>

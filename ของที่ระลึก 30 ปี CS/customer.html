@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ฟอร์มสั่งซื้อของที่ระลึก 30 ปี</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom , #1a8ca8, #8dcae4);
+    }
+
+    .container {
+      max-width: 600px;
+      width: 90%;
+      margin: 30px auto;
+      background: #f8f8f8;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    button {
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #3498db;
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 20px;
+      }
+
+      input, select, textarea {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>ฟอร์มสั่งซื้อของที่ระลึก 30 ปี<br>สาขาวิชาวิทยาการคอมพิวเตอร์</h2>
+    <form action="save_stock.php" method="POST" enctype="multipart/form-data">
+      <label for="name">ชื่อ - นามสกุล</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="address">ที่อยู่</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+
+      <label for="phone">เบอร์โทร</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="product">เลือกรายการสินค้า</label>
+      <select id="product" name="product" required>
+        <option value="">-- กรุณาเลือกสินค้า --</option>
+        <option value="เสื้อ">เสื้อ</option>
+        <option value="กระเป๋า">กระเป๋า</option>
+        <option value="แก้ว">แก้ว</option>
+        <option value="หมวก">หมวก</option>
+        <option value="ร่ม">ร่ม</option>
+        <option value="เข็มกลัด">เข็มกลัด</option>
+        <option value="สมุด">สมุด</option>
+        <option value="ปากกา">ปากกา</option>
+      </select>
+
+      <label for="details">รายละเอียดเพิ่มเติม (สี, ขนาด ฯลฯ)</label>
+      <textarea id="details" name="details" rows="2"></textarea>
+
+      <label for="slip">แนบรูป Slip การโอนเงิน</label>
+      <input type="file" id="slip" name="slip" accept="image/*" required />
+
+      <label for="date">วันที่ซื้อ</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="receive">การรับสินค้า</label>
+      <select id="receive" name="receive" required>
+        <option value="">-- กรุณาเลือก --</option>
+        <option value="รับเอง">รับเอง</option>
+        <option value="จัดส่ง">จัดส่ง</option>
+      </select>
+
+      <label for="payment">ช่องทางชำระเงิน</label>
+      <select id="payment" name="payment" required>
+        <option value="">-- กรุณาเลือก --</option>
+        <option value="โอนผ่านธนาคาร">โอนผ่านธนาคาร</option>
+        <option value="พร้อมเพย์">พร้อมเพย์</option>
+        <option value="เงินสด">เงินสด</option>
+      </select>
+
+      <button type="submit">ยืนยันการสั่งซื้อ</button>
+ <a href="mainmenu.html">
+    <button type="button" style="
+      background-color: #f39c12;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    ">ฉันไม่ใช้ลูกค้า</button>
+  </a>
+    </form>
+  </div>
+</body>
+</html>

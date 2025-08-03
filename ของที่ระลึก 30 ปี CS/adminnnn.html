@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>เพิ่มสินค้า | แอดมิน</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #74ebd5, #9face6);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 400px;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      color: #34495e;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
+    button {
+      width: 100%;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2471a3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>เพิ่มสินค้าเข้าสู่ระบบ</h2>
+    <form action="../save_stock.php" method="POST" enctype="multipart/form-data">
+      <label>ประเภทสินค้า</label>
+      <select name="category" required>
+        <option value="เสื้อ">เสื้อ</option>
+        <option value="กระเป๋า">กระเป๋า</option>
+        <option value="แก้ว">แก้ว</option>
+        <option value="หมวก">หมวก</option>
+        <option value="ร่ม">ร่ม</option>
+        <option value="เข็มกลัด">เข็มกลัด</option>
+        <option value="สมุด">สมุด</option>
+        <option value="ปากกา">ปากกา</option>
+      </select>
+
+      <label>สี</label>
+      <input type="text" name="color" required>
+
+      <label>ขนาด</label>
+      <input type="text" name="size" required>
+
+      <label>ราคา (บาท)</label>
+      <input type="number" name="price" required>
+
+      <label>รูปภาพสินค้า</label>
+      <input type="file" name="image" accept="image/*" required>
+
+      <button type="submit">บันทึกสินค้า</button>
+      <a href="mainmenu.html">
+    <button type="button" style="
+      background-color: #f39c12;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    ">กลับหน้าหลัก</button>
+    </form>
+  </div>
+</body>
+</html>
